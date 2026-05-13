@@ -1,8 +1,7 @@
 import { PLANETS, ORBIT_RADII } from './planets.js';
 
-function camForPlanet(name, sideOffset, height, distance) {
-  const [px, , pz] = PLANETS[name].position;
-  const len = Math.sqrt(px * px + pz * pz);
+export function camFromPosition(px, pz, sideOffset, height, distance) {
+  const len = Math.sqrt(px * px + pz * pz) || 1;
   const dirX = -px / len;
   const dirZ = -pz / len;
   const perpX = -dirZ;
@@ -16,6 +15,11 @@ function camForPlanet(name, sideOffset, height, distance) {
     ],
     look: [px, 0, pz],
   };
+}
+
+function camForPlanet(name, sideOffset, height, distance) {
+  const [px, , pz] = PLANETS[name].position;
+  return camFromPosition(px, pz, sideOffset, height, distance);
 }
 
 export const SECTION_CAMERAS = [

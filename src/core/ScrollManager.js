@@ -13,6 +13,7 @@ export class ScrollManager {
     this.progress = 0;
     this.transitioning = false;
     this._listeners = [];
+    this._cameraResolver = null;
 
     this._fromPos = new THREE.Vector3();
     this._toPos = new THREE.Vector3();
@@ -23,6 +24,16 @@ export class ScrollManager {
     this._setCamera(0);
   }
 
+  setCameraResolver(fn) {
+    this._cameraResolver = fn;
+  }
+
+  updateTransitionTarget(pos, look) {
+    if (!this.transitioning) return;
+    this._toPos.set(...pos);
+    this._toLook.set(...look);
+  }
+
   _setCamera(index) {
     const cam = SECTION_CAMERAS[index];
     this.camera.position.set(...cam.pos);
@@ -30,14 +41,14 @@ export class ScrollManager {
     this.camera.lookAt(this._currentLook);
   }
 
-  _startTransition(from, to) {
+  _startTransition(from, to, cam) {
     if (from === to) return;
     this.transitioning = true;
     this.progress = 0;
     this._fromPos.copy(this.camera.position);
-    this._toPos.set(...SECTION_CAMERAS[to].pos);
+    this._toPos.set(...cam.pos);
     this._fromLook.copy(this._currentLook);
-    this._toLook.set(...SECTION_CAMERAS[to].look);
+    this._toLook.set(...cam.look);
   }
 
   goTo(index) {
@@ -45,7 +56,10 @@ export class ScrollManager {
     if (index === this.targetSection && !this.transitioning) return;
     const from = this.transitioning ? this.targetSection : this.currentSection;
     this.targetSection = index;
-    this._startTransition(from, index);
+    const cam = this._cameraResolver
+      ? this._cameraResolver(index)
+      : SECTION_CAMERAS[index];
+    this._startTransition(from, index, cam);
     this._emit(index);
   }
 
