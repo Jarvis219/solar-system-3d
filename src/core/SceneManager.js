@@ -35,8 +35,11 @@ export class SceneManager {
   }
 
   _setupLighting() {
-    const ambient = new THREE.AmbientLight(0x445566, 1.0);
+    const ambient = new THREE.AmbientLight(0x556677, 2.5);
     this.scene.add(ambient);
+
+    const hemi = new THREE.HemisphereLight(0x445566, 0x223344, 1.0);
+    this.scene.add(hemi);
   }
 
   _setupPostProcessing() {

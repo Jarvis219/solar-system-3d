@@ -19,8 +19,8 @@ function camForPlanet(name, sideOffset, height, distance) {
 }
 
 export const SECTION_CAMERAS = [
-  // 0: Intro
-  { pos: [0, 40, 80], look: [0, 0, 0] },
+  // 0: Intro — 20° right offset
+  { pos: [17, 22.5, 47], look: [0, 0, 0] },
   // 1: Sun
   { pos: [12, 6, 12], look: [0, 0, 0] },
   // 2: Mercury — sunlit side, slight left
