@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar System - 3D Experience</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g'><stop offset='0%25' stop-color='%23fff8e0'/><stop offset='40%25' stop-color='%23ffcc33'/><stop offset='100%25' stop-color='%23ff8800'/></radialGradient></defs><circle cx='50' cy='50' r='38' fill='url(%23g)'/><circle cx='50' cy='50' r='48' fill='none' stroke='%23ffcc3344' stroke-width='2'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <canvas id="scene"></canvas>
+
+  <div id="overlay">
+    <div class="section-panel" data-section="0">
+      <span class="section-tag">Welcome</span>
+      <h2>Hệ Mặt Trời</h2>
+      <p class="section-desc">Chào mừng bạn đến với hành trình khám phá hệ Mặt Trời — nơi 8 hành tinh, hàng trăm vệ tinh và vô số tiểu hành tinh quay quanh ngôi sao duy nhất của chúng ta. Từ bề mặt rực cháy của Mặt Trời đến vùng tối tăm ngoài rìa Sao Hải Vương, mỗi thiên thể đều mang một câu chuyện riêng. Hãy chọn một hành tinh để bắt đầu.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">4.6</span><span class="stat-label">Tỷ năm tuổi</span></div>
+        <div class="stat"><span class="stat-value">8</span><span class="stat-label">Hành tinh</span></div>
+        <div class="stat"><span class="stat-value">~300</span><span class="stat-label">Vệ tinh</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="1">
+      <span class="section-tag">The Sun</span>
+      <h2>Mặt Trời</h2>
+      <p class="section-desc">Ngôi sao lùn vàng nằm ở trung tâm hệ Mặt Trời, chiếm 99.86% tổng khối lượng toàn hệ. Mỗi giây, lõi Mặt Trời chuyển đổi 600 triệu tấn hydro thành heli qua phản ứng nhiệt hạch, giải phóng năng lượng tương đương 4 triệu tấn vật chất. Ánh sáng từ lõi mất khoảng 170,000 năm để đến bề mặt, nhưng chỉ 8 phút 20 giây để bay tới Trái Đất.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">5,500&deg;C</span><span class="stat-label">Bề mặt</span></div>
+        <div class="stat"><span class="stat-value">15M&deg;C</span><span class="stat-label">Lõi</span></div>
+        <div class="stat"><span class="stat-value">1.4M km</span><span class="stat-label">Đường kính</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="2">
+      <span class="section-tag">Mercury</span>
+      <h2>Sao Thuỷ</h2>
+      <p class="section-desc">Hành tinh nhỏ nhất và gần Mặt Trời nhất — chỉ lớn hơn Mặt Trăng một chút. Bề mặt đầy hố va chạm và vách đá cao hàng km, ghi lại lịch sử 4 tỷ năm bị thiên thạch bắn phá. Không có khí quyển bảo vệ, ban ngày nóng tới 430&deg;C nhưng ban đêm lạnh xuống -180&deg;C. Một ngày trên Sao Thuỷ dài bằng 176 ngày Trái Đất.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">4,879</span><span class="stat-label">Đường kính (km)</span></div>
+        <div class="stat"><span class="stat-value">88</span><span class="stat-label">Ngày quỹ đạo</span></div>
+        <div class="stat"><span class="stat-value">0</span><span class="stat-label">Vệ tinh</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="3">
+      <span class="section-tag">Venus</span>
+      <h2>Sao Kim</h2>
+      <p class="section-desc">Hành tinh nóng nhất hệ Mặt Trời dù không gần Mặt Trời nhất — hiệu ứng nhà kính cực đoan giữ nhiệt độ bề mặt ở 462&deg;C, đủ nóng chảy chì. Khí quyển dày đặc CO₂ với áp suất gấp 90 lần Trái Đất và mây axit sulfuric che phủ toàn bộ. Sao Kim quay ngược chiều so với hầu hết các hành tinh khác, và một ngày ở đây dài hơn một năm.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">462&deg;C</span><span class="stat-label">Bề mặt</span></div>
+        <div class="stat"><span class="stat-value">225</span><span class="stat-label">Ngày quỹ đạo</span></div>
+        <div class="stat"><span class="stat-value">92</span><span class="stat-label">Áp suất (atm)</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="4">
+      <span class="section-tag">Earth</span>
+      <h2>Trái Đất</h2>
+      <p class="section-desc">Hành tinh duy nhất được biết đến có sự sống — nhờ vị trí nằm trong "vùng sống được" của Mặt Trời, nơi nước có thể tồn tại ở dạng lỏng. 71% bề mặt được bao phủ bởi đại dương, bầu khí quyển giàu oxy và nitơ, cùng từ trường mạnh bảo vệ khỏi gió Mặt Trời. Trái Đất là hành tinh đá lớn nhất và có mật độ cao nhất trong hệ Mặt Trời.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">12,742</span><span class="stat-label">Đường kính (km)</span></div>
+        <div class="stat"><span class="stat-value">365.25</span><span class="stat-label">Ngày quỹ đạo</span></div>
+        <div class="stat"><span class="stat-value">15&deg;C</span><span class="stat-label">Nhiệt độ TB</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="5">
+      <span class="section-tag">The Moon</span>
+      <h2>Mặt Trăng</h2>
+      <p class="section-desc">Vệ tinh tự nhiên duy nhất và thiên thể gần nhất của Trái Đất. Mặt Trăng điều khiển thuỷ triều, ổn định trục quay của Trái Đất và làm chậm dần tốc độ tự quay của hành tinh. Bề mặt phủ đầy hố va chạm và biển dung nham cổ đại. Ngày 20/7/1969, Neil Armstrong trở thành người đầu tiên đặt chân lên Mặt Trăng trong sứ mệnh Apollo 11.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">3,474</span><span class="stat-label">Đường kính (km)</span></div>
+        <div class="stat"><span class="stat-value">27.3</span><span class="stat-label">Ngày quỹ đạo</span></div>
+        <div class="stat"><span class="stat-value">384,400</span><span class="stat-label">Khoảng cách (km)</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="6">
+      <span class="section-tag">Mars</span>
+      <h2>Sao Hoả</h2>
+      <p class="section-desc">Hành tinh Đỏ — điểm đến tiếp theo của nhân loại trong hành trình chinh phục vũ trụ. Sao Hoả sở hữu ngọn núi lửa cao nhất (Olympus Mons — 21.9 km) và hẻm núi dài nhất (Valles Marineris — 4,000 km) trong hệ Mặt Trời. Bằng chứng cho thấy nước lỏng từng chảy trên bề mặt hàng tỷ năm trước. Hai vệ tinh nhỏ Phobos và Deimos được cho là tiểu hành tinh bị bắt giữ.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">6,779</span><span class="stat-label">Đường kính (km)</span></div>
+        <div class="stat"><span class="stat-value">687</span><span class="stat-label">Ngày quỹ đạo</span></div>
+        <div class="stat"><span class="stat-value">-63&deg;C</span><span class="stat-label">Nhiệt độ TB</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="7">
+      <span class="section-tag">Jupiter</span>
+      <h2>Sao Mộc</h2>
+      <p class="section-desc">Hành tinh khí khổng lồ lớn nhất — khối lượng gấp 318 lần và thể tích chứa được 1,300 Trái Đất. Vết Đỏ Lớn là cơn bão khổng lồ rộng gấp đôi Trái Đất, đã hoành hành hơn 400 năm. Sao Mộc hoạt động như "máy hút bụi vũ trụ", dùng lực hấp dẫn khổng lồ hút các tiểu hành tinh và sao chổi, bảo vệ các hành tinh phía trong. Có ít nhất 95 vệ tinh, bao gồm 4 vệ tinh Galileo nổi tiếng.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">139,820</span><span class="stat-label">Đường kính (km)</span></div>
+        <div class="stat"><span class="stat-value">11.86</span><span class="stat-label">Năm quỹ đạo</span></div>
+        <div class="stat"><span class="stat-value">95</span><span class="stat-label">Vệ tinh</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="8">
+      <span class="section-tag">Saturn</span>
+      <h2>Sao Thổ</h2>
+      <p class="section-desc">Viên ngọc của hệ Mặt Trời với hệ thống vành đai tuyệt đẹp trải rộng 282,000 km, gồm hàng tỷ mảnh băng và đá có kích thước từ hạt cát đến ngôi nhà. Mật độ thấp nhất trong các hành tinh — nhẹ hơn nước, có thể nổi nếu có đại dương đủ lớn. Vệ tinh Titan có bầu khí quyển dày và hồ methane lỏng trên bề mặt — một trong những nơi tiềm năng nhất để tìm kiếm sự sống ngoài Trái Đất.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">116,460</span><span class="stat-label">Đường kính (km)</span></div>
+        <div class="stat"><span class="stat-value">29.5</span><span class="stat-label">Năm quỹ đạo</span></div>
+        <div class="stat"><span class="stat-value">146</span><span class="stat-label">Vệ tinh</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="9">
+      <span class="section-tag">Uranus</span>
+      <h2>Sao Thiên Vương</h2>
+      <p class="section-desc">Hành tinh nghiêng — trục quay gần như nằm ngang (97.77&deg;), có thể do va chạm với một thiên thể cỡ Trái Đất trong quá khứ xa xưa. Điều này khiến Sao Thiên Vương "lăn" trên quỹ đạo thay vì quay như con quay. Màu xanh lam nhạt đặc trưng đến từ khí methane trong bầu khí quyển. Nhiệt độ thấp nhất đo được trong hệ Mặt Trời: -224&deg;C. Có hệ thống vành đai mỏng và 13 vòng tối.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">50,724</span><span class="stat-label">Đường kính (km)</span></div>
+        <div class="stat"><span class="stat-value">84</span><span class="stat-label">Năm quỹ đạo</span></div>
+        <div class="stat"><span class="stat-value">-224&deg;C</span><span class="stat-label">Thấp nhất</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="10">
+      <span class="section-tag">Neptune</span>
+      <h2>Sao Hải Vương</h2>
+      <p class="section-desc">Hành tinh xa nhất và bí ẩn nhất — được phát hiện năm 1846 nhờ tính toán toán học trước khi được quan sát qua kính viễn vọng. Sao Hải Vương có gió mạnh nhất hệ Mặt Trời, lên tới 2,100 km/h. Vết Tối Lớn tương tự Vết Đỏ của Sao Mộc nhưng xuất hiện rồi biến mất. Vệ tinh lớn nhất Triton quay ngược chiều và được cho là một thiên thể từ Vành đai Kuiper bị bắt giữ.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">49,528</span><span class="stat-label">Đường kính (km)</span></div>
+        <div class="stat"><span class="stat-value">165</span><span class="stat-label">Năm quỹ đạo</span></div>
+        <div class="stat"><span class="stat-value">2,100</span><span class="stat-label">Gió (km/h)</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="11">
+      <span class="section-tag">Black Hole</span>
+      <h2>Hố Đen</h2>
+      <p class="section-desc">Vùng không-thời gian có lực hấp dẫn mạnh đến mức không gì — kể cả ánh sáng — có thể thoát ra. Được hình thành khi một ngôi sao khổng lồ sụp đổ vào cuối vòng đời. Chân trời sự kiện là ranh giới không thể quay lại — một khi vượt qua, mọi thứ bị kéo vào điểm kỳ dị ở tâm. Hố đen siêu khối lượng Sagittarius A* nằm ở trung tâm dải Ngân Hà, nặng gấp 4 triệu lần Mặt Trời.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">&infin;</span><span class="stat-label">Hấp dẫn</span></div>
+        <div class="stat"><span class="stat-value">0</span><span class="stat-label">Ánh sáng thoát</span></div>
+        <div class="stat"><span class="stat-value">4M</span><span class="stat-label">M<sub>&#9737;</sub> (Sgr A*)</span></div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="12">
+      <span class="section-tag">Overview</span>
+      <h2>Toàn Cảnh Hệ Mặt Trời</h2>
+      <p class="section-desc">Hệ Mặt Trời trải rộng khoảng 9 tỷ km từ Mặt Trời đến quỹ đạo Sao Hải Vương, và xa hơn nữa là Vành đai Kuiper và Đám mây Oort. Được hình thành cách đây 4.6 tỷ năm từ một đám mây bụi và khí khổng lồ, hệ Mặt Trời là ngôi nhà duy nhất mà nhân loại từng biết đến — và cũng là bệ phóng cho mọi hành trình khám phá vũ trụ phía trước.</p>
+      <div class="section-stats">
+        <div class="stat"><span class="stat-value">9B km</span><span class="stat-label">Đường kính</span></div>
+        <div class="stat"><span class="stat-value">4.6B</span><span class="stat-label">Tỷ năm tuổi</span></div>
+        <div class="stat"><span class="stat-value">1</span><span class="stat-label">Ngôi nhà</span></div>
+      </div>
+    </div>
+
+    <nav id="planet-nav">
+      <button class="nav-btn active" data-section="0"><span class="nav-icon" style="background:#888"></span><span class="nav-label">Overview</span></button>
+      <button class="nav-btn" data-section="1"><span class="nav-icon" style="background:#ffcc33"></span><span class="nav-label">Sun</span></button>
+      <button class="nav-btn" data-section="2"><span class="nav-icon" style="background:#8c8c8c"></span><span class="nav-label">Mercury</span></button>
+      <button class="nav-btn" data-section="3"><span class="nav-icon" style="background:#e8cda0"></span><span class="nav-label">Venus</span></button>
+      <button class="nav-btn" data-section="4"><span class="nav-icon" style="background:#4488cc"></span><span class="nav-label">Earth</span></button>
+      <button class="nav-btn" data-section="5"><span class="nav-icon" style="background:#aaaaaa"></span><span class="nav-label">Moon</span></button>
+      <button class="nav-btn" data-section="6"><span class="nav-icon" style="background:#c1440e"></span><span class="nav-label">Mars</span></button>
+      <button class="nav-btn" data-section="7"><span class="nav-icon" style="background:#c8a55a"></span><span class="nav-label">Jupiter</span></button>
+      <button class="nav-btn" data-section="8"><span class="nav-icon" style="background:#d4b896"></span><span class="nav-label">Saturn</span></button>
+      <button class="nav-btn" data-section="9"><span class="nav-icon" style="background:#72b8d4"></span><span class="nav-label">Uranus</span></button>
+      <button class="nav-btn" data-section="10"><span class="nav-icon" style="background:#3355bb"></span><span class="nav-label">Neptune</span></button>
+      <button class="nav-btn" data-section="11"><span class="nav-icon" style="background:#1a1a1a; box-shadow:0 0 6px #ff6600"></span><span class="nav-label">Black Hole</span></button>
+      <button class="nav-btn" data-section="12"><span class="nav-icon" style="background:transparent; border:1px solid rgba(255,255,255,0.3)"></span><span class="nav-label">Full View</span></button>
+    </nav>
+  </div>
+
+  <div id="loading-screen">
+    <div class="loading-content">
+      <h1>Solar System</h1>
+      <div class="loading-bar">
+        <div class="loading-fill" id="loading-fill"></div>
+      </div>
+      <p class="loading-text">Loading universe...</p>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
